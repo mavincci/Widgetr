@@ -3,35 +3,55 @@ import 'package:flutter/material.dart';
 class ColorPallet {
   final Color primary;
   final Color secondary;
+  final Color tertiary;
   final Color background;
-  final Color textPrimary;
   final Color error;
+  final Color onPrimary;
+  final Color onSecondary;
+  final Color onTertiary;
+  final Color onBackground;
+  final Color onError;
 
   const ColorPallet({
     required this.primary,
     required this.secondary,
+    required this.tertiary,
     required this.background,
-    required this.textPrimary,
     required this.error,
+    required this.onPrimary,
+    required this.onSecondary,
+    required this.onTertiary,
+    required this.onBackground,
+    required this.onError,
   });
 
   factory ColorPallet.light() {
     return const ColorPallet(
-      primary: Color(0xFF1976D2),
-      secondary: Color(0xFF388E3C),
-      background: Color(0xFFFFFFFF),
-      textPrimary: Color(0xFF000000),
-      error: Color(0xFFD32F2F),
+      primary: Colors.blue,
+      secondary: Colors.green,
+      tertiary: Colors.orange,
+      background: Colors.white,
+      error: Colors.red,
+      onPrimary: Colors.white,
+      onSecondary: Colors.black,
+      onTertiary: Colors.black,
+      onBackground: Colors.black,
+      onError: Colors.white,
     );
   }
 
   factory ColorPallet.dark() {
     return const ColorPallet(
-      primary: Color(0xFFBB86FC),
-      secondary: Color(0xFF03DAC6),
-      background: Color(0xFF121212),
-      textPrimary: Color(0xFFFFFFFF),
-      error: Color(0xFFCF6679),
+      primary: Colors.blueGrey,
+      secondary: Colors.teal,
+      tertiary: Colors.deepPurple,
+      background: Colors.black,
+      error: Colors.redAccent,
+      onPrimary: Colors.black,
+      onSecondary: Colors.white,
+      onTertiary: Colors.white,
+      onBackground: Colors.white,
+      onError: Colors.black,
     );
   }
 }

@@ -32,18 +32,43 @@ class AtomsGallery extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         buildKV(
-          "backgroundColor",
+          "tertiary",
+          pallet.tertiary,
+        ),
+        const SizedBox(height: 10),
+        buildKV(
+          "background",
           pallet.background,
         ),
         const SizedBox(height: 10),
         buildKV(
-          "textPrimaryColor",
-          pallet.textPrimary,
+          "error",
+          pallet.error,
         ),
         const SizedBox(height: 10),
         buildKV(
-          "errorColor",
-          pallet.error,
+          "onPrimary",
+          pallet.onPrimary,
+        ),
+        const SizedBox(height: 10),
+        buildKV(
+          "onSecondary",
+          pallet.onSecondary,
+        ),
+        const SizedBox(height: 10),
+        buildKV(
+          "onTertiary",
+          pallet.onTertiary,
+        ),
+        const SizedBox(height: 10),
+        buildKV(
+          "onBackground",
+          pallet.onBackground,
+        ),
+        const SizedBox(height: 10),
+        buildKV(
+          "onError",
+          pallet.onError,
         ),
       ],
     );

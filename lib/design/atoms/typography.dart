@@ -22,22 +22,22 @@ class Typography {
       heading: TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.bold,
-        color: colorPallet.textPrimary,
+        color: colorPallet.onBackground,
       ),
       subheading: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w600,
-        color: colorPallet.textPrimary,
+        color: colorPallet.onBackground,
       ),
       body: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.normal,
-        color: colorPallet.textPrimary,
+        color: colorPallet.onBackground,
       ),
       caption: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.normal,
-        color: colorPallet.textPrimary.withOpacity(0.6),
+        color: colorPallet.onBackground.withOpacity(0.6),
       ),
       button: TextStyle(
         fontSize: 14,
