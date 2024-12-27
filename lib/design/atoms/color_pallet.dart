@@ -7,7 +7,7 @@ class ColorPallet {
   final Color textPrimary;
   final Color error;
 
-  ColorPallet({
+  const ColorPallet({
     required this.primary,
     required this.secondary,
     required this.background,
@@ -16,12 +16,22 @@ class ColorPallet {
   });
 
   factory ColorPallet.light() {
-    return ColorPallet(
-      primary: const Color(0xFF4CAF50),
-      secondary: const Color(0xFF4CAF50),
-      background: const Color(0xFFFFFFFF),
-      textPrimary: const Color(0xFF000000),
-      error: const Color(0xFFB00020),
+    return const ColorPallet(
+      primary: Color(0xFF1976D2),
+      secondary: Color(0xFF388E3C),
+      background: Color(0xFFFFFFFF),
+      textPrimary: Color(0xFF000000),
+      error: Color(0xFFD32F2F),
+    );
+  }
+
+  factory ColorPallet.dark() {
+    return const ColorPallet(
+      primary: Color(0xFFBB86FC),
+      secondary: Color(0xFF03DAC6),
+      background: Color(0xFF121212),
+      textPrimary: Color(0xFFFFFFFF),
+      error: Color(0xFFCF6679),
     );
   }
 }
