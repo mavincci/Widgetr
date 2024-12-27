@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:widgetr/design/atoms/borders.dart';
 import 'package:widgetr/design/atoms/color_pallet.dart';
+import 'package:widgetr/design/atoms/shadows.dart';
 import "package:widgetr/design/atoms/typography.dart" as t;
 
 class AtomsGallery extends StatelessWidget {
@@ -89,11 +91,81 @@ class AtomsGallery extends StatelessWidget {
     );
   }
 
+  Widget buildShadows(Shadows shadows) {
+    buildShadowBox(String label, BoxShadow shadow) {
+      return Column(
+        children: [
+          Container(
+            width: 100,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [shadow],
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(label),
+        ],
+      );
+    }
+
+    return Column(
+      children: [
+        buildShadowBox("Low", shadows.low),
+        const SizedBox(height: 20),
+        buildShadowBox("Medium", shadows.medium),
+        const SizedBox(height: 20),
+        buildShadowBox("High", shadows.high),
+      ],
+    );
+  }
+
+  Widget buildBorders(Borders borders) {
+    buildBorderBox(
+        String label, BorderRadius radius, double width, Color color) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 100,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(
+                color: color,
+                width: width,
+              ),
+              borderRadius: radius,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(label),
+        ],
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        buildBorderBox("Small Radius + Thin", borders.smallRadius,
+            borders.thinWidth, borders.borderColor),
+        const SizedBox(height: 20),
+        buildBorderBox("Medium Radius + Medium", borders.mediumRadius,
+            borders.mediumWidth, borders.borderColor),
+        const SizedBox(height: 20),
+        buildBorderBox("Large Radius + Thick", borders.largeRadius,
+            borders.thickWidth, borders.borderColor),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final examplePallet = ColorPallet.light();
     final exampleTypography = t.Typography.defaultTypography(examplePallet);
-    ;
+    final exampleShadows = Shadows.light();
+    final exampleBorders = Borders.light(examplePallet);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Atoms'),
@@ -112,6 +184,15 @@ class AtomsGallery extends StatelessWidget {
               Text('Typography'),
               SizedBox(height: 20),
               buildTypography(exampleTypography),
+              SizedBox(height: 40),
+              Text('Shadows'),
+              SizedBox(height: 20),
+              buildShadows(exampleShadows),
+              SizedBox(height: 40),
+              Text('Borders'),
+              SizedBox(height: 20),
+              buildBorders(exampleBorders),
+              SizedBox(height: 400),
             ],
           ),
         ),

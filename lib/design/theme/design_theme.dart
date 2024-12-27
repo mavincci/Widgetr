@@ -1,3 +1,4 @@
+import 'package:widgetr/design/atoms/borders.dart';
 import 'package:widgetr/design/atoms/color_pallet.dart';
 import 'package:widgetr/design/atoms/shadows.dart';
 import 'package:widgetr/design/atoms/spacing.dart';
@@ -8,12 +9,14 @@ class DesignTheme {
   final Typography typography;
   final Spacing spacing;
   final Shadows shadows;
+  final Borders borders;
 
   DesignTheme({
     required this.colorPallet,
     required this.typography,
     required this.spacing,
     required this.shadows,
+    required this.borders,
   });
 
   factory DesignTheme.light() {
@@ -23,6 +26,7 @@ class DesignTheme {
       typography: Typography.defaultTypography(colorPallet),
       spacing: Spacing.light(),
       shadows: Shadows.light(),
+      borders: Borders.light(colorPallet),
     );
   }
 
@@ -33,6 +37,7 @@ class DesignTheme {
       typography: Typography.defaultTypography(colorPallet),
       spacing: Spacing.dark(),
       shadows: Shadows.dark(),
+      borders: Borders.dark(colorPallet),
     );
   }
 }
