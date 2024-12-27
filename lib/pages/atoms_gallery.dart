@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widgetr/design/atoms/borders.dart';
 import 'package:widgetr/design/atoms/color_pallet.dart';
+import 'package:widgetr/design/atoms/icon_sizes.dart';
 import 'package:widgetr/design/atoms/shadows.dart';
 import "package:widgetr/design/atoms/typography.dart" as t;
 
@@ -159,12 +160,52 @@ class AtomsGallery extends StatelessWidget {
     );
   }
 
+  Widget buildIcons(IconSizes iconSizes) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Row for small icons
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.home, size: iconSizes.smallSize),
+            Icon(Icons.search, size: iconSizes.smallSize),
+            Icon(Icons.settings, size: iconSizes.smallSize),
+          ],
+        ),
+        const SizedBox(height: 20),
+
+        // Row for medium icons
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.home, size: iconSizes.mediumSize),
+            Icon(Icons.search, size: iconSizes.mediumSize),
+            Icon(Icons.settings, size: iconSizes.mediumSize),
+          ],
+        ),
+        const SizedBox(height: 20),
+
+        // Row for large icons
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.home, size: iconSizes.largeSize),
+            Icon(Icons.search, size: iconSizes.largeSize),
+            Icon(Icons.settings, size: iconSizes.largeSize),
+          ],
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final examplePallet = ColorPallet.light();
     final exampleTypography = t.Typography.defaultTypography(examplePallet);
     final exampleShadows = Shadows.light();
     final exampleBorders = Borders.light(examplePallet);
+    final exampleIconSizes = IconSizes.example();
 
     return Scaffold(
       appBar: AppBar(
@@ -192,6 +233,10 @@ class AtomsGallery extends StatelessWidget {
               Text('Borders'),
               SizedBox(height: 20),
               buildBorders(exampleBorders),
+              SizedBox(height: 40),
+              Text('Icon sizes'),
+              SizedBox(height: 20),
+              buildIcons(exampleIconSizes),
               SizedBox(height: 400),
             ],
           ),
