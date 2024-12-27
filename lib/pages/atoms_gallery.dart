@@ -47,32 +47,43 @@ class AtomsGallery extends StatelessWidget {
   }
 
   Widget buildTypography(t.Typography typography) {
+    buildTypoInfo(String key, TextStyle value) {
+      return Row(
+        children: [
+          Text(
+            "$key --- ${value.fontSize} -- ${value.fontWeight!.value} -- ${value.fontFamily} -- [${value.fontFamilyFallback?.join(", ") ?? ""}]",
+            style: value,
+          ),
+        ],
+      );
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        buildTypoInfo(
           "heading",
-          style: typography.heading,
+          typography.heading,
         ),
         const SizedBox(height: 10),
-        Text(
+        buildTypoInfo(
           "subheading",
-          style: typography.subheading,
+          typography.subheading,
         ),
         const SizedBox(height: 10),
-        Text(
+        buildTypoInfo(
           "body",
-          style: typography.body,
+          typography.body,
         ),
         const SizedBox(height: 10),
-        Text(
+        buildTypoInfo(
           "caption",
-          style: typography.caption,
+          typography.caption,
         ),
         const SizedBox(height: 10),
-        Text(
+        buildTypoInfo(
           "button",
-          style: typography.button,
+          typography.button,
         ),
       ],
     );
