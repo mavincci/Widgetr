@@ -47,6 +47,20 @@ class MoleculesGallery extends StatelessWidget {
         );
       }
 
+      buildIconButton(Icon? icon) {
+        return CustomButton(
+          onPressed: () => print("Icon Button pressed"),
+          backgroundColor: Colors.white,
+          textColor: theme.colorPallet.secondary,
+          icon: icon,
+          iconSize: theme.iconSizes.largeSize,
+          borderColor: theme.colorPallet.secondary,
+          borderWidth: theme.borders.mediumWidth,
+          borderRadius: theme.borders.mediumRadius,
+          padding: const EdgeInsets.all(24),
+        );
+      }
+
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -74,6 +88,8 @@ class MoleculesGallery extends StatelessWidget {
           buildErrorButton(
             text: "Error Button with out Icon",
           ),
+          const SizedBox(height: 10),
+          buildIconButton(Icon(Icons.settings)),
         ],
       );
     }

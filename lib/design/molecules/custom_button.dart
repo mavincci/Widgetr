@@ -15,10 +15,10 @@ class CustomButton extends StatelessWidget {
 
   const CustomButton({
     super.key,
-    this.text,
     required this.onPressed,
     required this.backgroundColor,
     required this.textColor,
+    this.text,
     this.icon,
     this.iconSize,
     this.padding = const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
