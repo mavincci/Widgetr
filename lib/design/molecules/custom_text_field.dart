@@ -17,6 +17,8 @@ class CustomTextField extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final int? minLines;
+  final int maxLines;
 
   const CustomTextField({
     super.key,
@@ -36,6 +38,8 @@ class CustomTextField extends StatelessWidget {
     this.padding = const EdgeInsets.all(12.0),
     this.prefixIcon,
     this.suffixIcon,
+    this.minLines,
+    this.maxLines = 1,
   });
 
   @override
@@ -54,6 +58,8 @@ class CustomTextField extends StatelessWidget {
           ),
         if (label != null) const SizedBox(height: 8),
         TextField(
+          minLines: minLines,
+          maxLines: maxLines,
           controller: controller,
           obscureText: isPassword,
           decoration: InputDecoration(
@@ -69,11 +75,12 @@ class CustomTextField extends StatelessWidget {
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),
               borderSide:
-              BorderSide(color: focusedBorderColor, width: borderWidth),
+                  BorderSide(color: focusedBorderColor, width: borderWidth),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(color: errorBorderColor, width: borderWidth),
+              borderSide:
+                  BorderSide(color: errorBorderColor, width: borderWidth),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),
